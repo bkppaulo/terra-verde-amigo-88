@@ -69,28 +69,30 @@ export const PropertyDetails = ({ user, onLogout }: PropertyDetailsProps) => {
             onClick={() => navigate('/')}
             className="hover:bg-muted/50 transition-all duration-300 hover:scale-105"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Voltar
           </Button>
-          <h1 className="text-xl sm:text-2xl font-semibold text-foreground">
-            Detalhes da Propriedade
+          <h1 className="text-lg font-semibold text-foreground">
+            Detalhes
           </h1>
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive hover:bg-destructive/10">
-                <Trash2 className="h-4 w-4" />
+              <Button variant="destructive" size="sm" className="bg-destructive/10 text-destructive hover:bg-destructive hover:text-white border border-destructive/30 hover:border-destructive">
+                <Trash2 className="h-4 w-4 mr-2" />
+                Excluir
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent className="max-w-sm">
               <AlertDialogHeader>
-                <AlertDialogTitle>Excluir propriedade</AlertDialogTitle>
-                <AlertDialogDescription>
-                  Tem certeza que deseja excluir "{property.name}"? Esta ação não pode ser desfeita.
+                <AlertDialogTitle className="text-center">Excluir propriedade</AlertDialogTitle>
+                <AlertDialogDescription className="text-center">
+                  Tem certeza que deseja excluir <strong>"{property.name}"</strong>? Esta ação não pode ser desfeita.
                 </AlertDialogDescription>
               </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancelar</AlertDialogCancel>
-                <AlertDialogAction onClick={handleDelete} className="bg-destructive hover:bg-destructive/90">
-                  Excluir
+              <AlertDialogFooter className="flex-col space-y-2 sm:space-y-0 sm:flex-row">
+                <AlertDialogCancel className="w-full">Cancelar</AlertDialogCancel>
+                <AlertDialogAction onClick={handleDelete} className="w-full bg-destructive hover:bg-destructive/90">
+                  Confirmar Exclusão
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
@@ -140,8 +142,8 @@ export const PropertyDetails = ({ user, onLogout }: PropertyDetailsProps) => {
             <Card className="border border-border/50 shadow-subtle bg-gradient-card hover:shadow-elegant transition-all duration-300">
               <CardContent className="p-4">
                 <div className="flex flex-col items-center space-y-2 text-center">
-                  <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <Square className="h-4 w-4 text-white" />
+                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <Square className="h-5 w-5 text-white" />
                   </div>
                   <div>
                     <p className="text-xs font-medium text-muted-foreground">Área Total</p>
@@ -154,11 +156,11 @@ export const PropertyDetails = ({ user, onLogout }: PropertyDetailsProps) => {
             <Card className="border border-border/50 shadow-subtle bg-gradient-card hover:shadow-elegant transition-all duration-300">
               <CardContent className="p-4">
                 <div className="flex flex-col items-center space-y-2 text-center">
-                  <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                    <Calendar className="h-4 w-4 text-white" />
+                  <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+                    <Calendar className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-muted-foreground">Cadastrada</p>
+                    <p className="text-xs font-medium text-muted-foreground">Cadastrada em</p>
                     <p className="text-sm font-semibold text-foreground">{new Date(property.createdAt).toLocaleDateString('pt-BR')}</p>
                   </div>
                 </div>
@@ -184,12 +186,15 @@ export const PropertyDetails = ({ user, onLogout }: PropertyDetailsProps) => {
           <Card className="border border-border/50 shadow-subtle bg-gradient-card">
             <CardContent className="p-6">
               <div className="text-center space-y-4">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto">
-                  <MapPin className="h-6 w-6 text-white" />
+                <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto">
+                  <MapPin className="h-8 w-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Localização no Mapa</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="font-semibold text-foreground mb-2">Localização no Mapa</h3>
+                  <p className="text-sm text-muted-foreground mb-1">
+                    Coordenadas definidas no sistema
+                  </p>
+                  <p className="text-xs text-muted-foreground bg-muted/30 rounded-lg px-3 py-2 inline-block">
                     {property.geojson.coordinates[0].length - 1} vértices desenhados
                   </p>
                 </div>

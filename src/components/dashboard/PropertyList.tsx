@@ -84,7 +84,9 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
           {/* Simple Info List */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <MapPin className="h-4 w-4 text-muted-foreground" />
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <MapPin className="h-4 w-4 text-white" />
+              </div>
               <div>
                 <p className="text-sm text-muted-foreground">Localização</p>
                 <p className="font-medium text-foreground">{property.city}{property.cep && ` • ${property.cep}`}</p>
@@ -92,7 +94,9 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             </div>
             
             <div className="flex items-center space-x-3">
-              <Crop className="h-4 w-4 text-muted-foreground" />
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <Crop className="h-4 w-4 text-white" />
+              </div>
               <div>
                 <p className="text-sm text-muted-foreground">Área</p>
                 <p className="font-medium text-foreground">{formatArea(property.area_m2)}</p>
@@ -100,7 +104,9 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             </div>
             
             <div className="flex items-center space-x-3">
-              <Calendar className="h-4 w-4 text-muted-foreground" />
+              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <Calendar className="h-4 w-4 text-white" />
+              </div>
               <div>
                 <p className="text-sm text-muted-foreground">Cadastrada</p>
                 <p className="font-medium text-foreground">{formatDate(property.createdAt)}</p>
