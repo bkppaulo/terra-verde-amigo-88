@@ -81,7 +81,9 @@ export const Profile = ({ userName, userPhone, onLogout }: ProfileProps) => {
                   <div className="flex items-center space-x-6 text-center">
                     <div>
                       <div className="text-xl font-bold text-primary">{propertyCount}</div>
-                      <div className="text-xs text-muted-foreground">Propriedade{propertyCount !== 1 ? 's' : ''}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {propertyCount === 0 ? 'Nenhuma propriedade' : propertyCount === 1 ? 'Propriedade' : 'Propriedades'}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -112,8 +114,8 @@ export const Profile = ({ userName, userPhone, onLogout }: ProfileProps) => {
                     <MapPin className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-muted-foreground">Região</p>
-                    <p className="text-sm font-semibold text-foreground">SP Interior</p>
+                    <p className="text-xs font-medium text-muted-foreground">Cidade</p>
+                    <p className="text-sm font-semibold text-foreground">São Paulo</p>
                   </div>
                 </div>
               </CardContent>
