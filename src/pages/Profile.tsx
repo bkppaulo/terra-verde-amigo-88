@@ -82,7 +82,7 @@ export const Profile = ({ userName, userPhone, onLogout }: ProfileProps) => {
                     <div>
                       <div className="text-xl font-bold text-primary">{propertyCount}</div>
                       <div className="text-xs text-muted-foreground">
-                        {propertyCount === 0 ? 'Nenhuma propriedade' : propertyCount === 1 ? 'Propriedade' : 'Propriedades'}
+                        {propertyCount === 0 ? 'Nenhuma' : propertyCount === 1 ? 'Propriedade' : 'Propriedades'}
                       </div>
                     </div>
                   </div>
