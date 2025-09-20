@@ -31,7 +31,7 @@ export const Navbar = ({ userName, userPhone, onLogout, hideProfileAvatar = fals
               <h1 className="text-lg font-bold bg-gradient-primary bg-clip-text text-transparent">
                 Assistente Zé Agro
               </h1>
-              <p className="text-xs text-muted-foreground">Sua propriedade rural inteligente</p>
+              <p className="text-xs text-muted-foreground">Seu assistente virtual do campo</p>
             </div>
           </div>
           

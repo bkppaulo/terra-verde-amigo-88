@@ -29,10 +29,20 @@ export const PropertyList = ({ properties }: PropertyListProps) => {
   }
 
   return (
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {properties.map((property) => (
-        <PropertyCard key={property.id} property={property} />
-      ))}
+    <div className="space-y-6">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          Lista de Propriedades
+        </h2>
+        <p className="text-muted-foreground mt-2">
+          {properties.length} propriedade{properties.length !== 1 ? 's' : ''} cadastrada{properties.length !== 1 ? 's' : ''}
+        </p>
+      </div>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {properties.map((property) => (
+          <PropertyCard key={property.id} property={property} />
+        ))}
+      </div>
     </div>
   );
 };

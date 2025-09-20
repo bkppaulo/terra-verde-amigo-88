@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { User, Phone, LogOut, ArrowLeft, MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
+import { getUserProperties } from "@/lib/properties";
 
 interface ProfileProps {
   userName: string;
@@ -14,6 +16,12 @@ interface ProfileProps {
 
 export const Profile = ({ userName, userPhone, onLogout }: ProfileProps) => {
   const navigate = useNavigate();
+  const [propertyCount, setPropertyCount] = useState(0);
+
+  useEffect(() => {
+    const properties = getUserProperties();
+    setPropertyCount(properties.length);
+  }, []);
   
   const getInitials = (name: string) => {
     return name.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2);
@@ -72,8 +80,8 @@ export const Profile = ({ userName, userPhone, onLogout }: ProfileProps) => {
                   
                   <div className="flex items-center space-x-6 text-center">
                     <div>
-                      <div className="text-xl font-bold text-primary">12</div>
-                      <div className="text-xs text-muted-foreground">Meses</div>
+                      <div className="text-xl font-bold text-primary">{propertyCount}</div>
+                      <div className="text-xs text-muted-foreground">Propriedade{propertyCount !== 1 ? 's' : ''}</div>
                     </div>
                   </div>
                 </div>
