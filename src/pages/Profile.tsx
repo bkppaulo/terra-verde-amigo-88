@@ -80,9 +80,11 @@ export const Profile = ({ userName, userPhone, onLogout }: ProfileProps) => {
                   
                   <div className="flex items-center space-x-6 text-center">
                     <div>
-                      <div className="text-xl font-bold text-primary">{propertyCount}</div>
+                      <div className="text-xl font-bold text-primary">
+                        {propertyCount === 0 ? 'Nenhuma' : propertyCount}
+                      </div>
                       <div className="text-xs text-muted-foreground">
-                        {propertyCount === 0 ? 'Nenhuma' : propertyCount === 1 ? 'Propriedade' : 'Propriedades'}
+                        {propertyCount === 1 ? 'Propriedade' : 'Propriedades'}
                       </div>
                     </div>
                   </div>
